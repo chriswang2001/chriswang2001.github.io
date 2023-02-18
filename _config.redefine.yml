@@ -2,9 +2,9 @@
 #  Your basic info
 # ---------------------------------------------------------------------------------------
 base_info:
-  title: Theme Redefine # Site title
-  author: The Redefine Team # Author name
-  url: https://redefine.ohevan.com # Site url
+  title: haozhou's blog # Site title
+  author: haozhou-wong # Author name
+  url: https://haozhou-wong.cn # Site url
   # Logo image (You can use local image, image external link or don’t fill)
   logo_img: # logo image on the left of the navigation bar
 
@@ -16,7 +16,7 @@ style:
   primary_color: "#005080"
 
   # Avatar (You can use local image or image external link)
-  avatar: /images/redefine-avatar.svg # avatar of the author
+  avatar: https://image-1305582579.cos.ap-chengdu.myqcloud.com/1603784845226.jpeg # avatar of the author
 
   # Favicon (You can use local image or image external link)
   favicon: /images/redefine-logo.svg # favicon of the site
@@ -50,7 +50,7 @@ style:
     title_color:
       light: "#fff" # first screen title color (light mode)
       dark: "#d1d1b6" # first screen title color (dark mode)
-    description: Theme Redefine # the title in the middle of the first screen. HTML supported (e.g. svg html code of your logo)
+    description: Good programmers write code that humans can understand. # the title in the middle of the first screen. HTML supported (e.g. svg html code of your logo)
     custom_font: # custom font for the first screen
       enable: false
       font_family: # the font family name of the url below
@@ -67,13 +67,14 @@ style:
 # Social contact link
 # ---------------------------------------------------------------------------------------
 social_contact: # social contact icons in the first screen, you can add more by using fontawesome icon names
-  enable: false 
+  enable: ture
   links:
-    github:  # your GitHub URL
+    github: https://github.com/chriswang2001 # your GitHub URL
     instagram: # your Instagram URL
     zhihu:  # your ZhiHu URL
     twitter:  # your twitter URL
-    email:  # your email
+    email: haozhou-wong@gmail.com # your email
+    blogger: https://haozhou-wong.cn
     # ...... # you can add more
 
 # ---------------------------------------------------------------------------------------
@@ -83,19 +84,19 @@ menu: #you can customize, i18n files are in the theme's languages folder. fa-reg
   Home: 
     path: / 
     icon: fa-regular fa-house # can be empty
-  # Archives: 
-  #   path: /archives 
-  #   icon: fa-regular fa-archive # can be empty
+  Archives: 
+    path: /archives 
+    icon: fa-regular fa-archive # can be empty
   # Status: 
   #   path: https://status.evanluo.top/
   #   icon: fa-regular fa-chart-bar
-  # About: 
-  #   icon: fa-regular fa-user
-  #   submenus:
-  #     Me: /about
-  #     Github: https://github.com/EvanNotFound/hexo-theme-redefine
-  #     Blog: https://ohevan.com
-  #     Friends: /friends
+  About: 
+    icon: fa-regular fa-user
+    submenus:
+      Me: /about
+      Github: https://github.com/chriswang2001
+      Blog: https://haozhou-wong.cn
+      # Friends: /friends
   # Links: 
   #   icon: fa-regular fa-link
   #   submenus:
@@ -143,7 +144,7 @@ post:
 # ---------------------------------------------------------------------------------------
 code_block:
   copy: true # enable code copy button
-  style: mac # mac | simple
+  style: simple # mac | simple
   custom_font: # custom font family, default: Ubuntu Mono
     enable: false
     font_family: # font family name
@@ -168,7 +169,7 @@ toc:
 # Post copyright info
 # ---------------------------------------------------------------------------------------
 copyright_info:
-  enable: true
+  enable: false
 
 # ---------------------------------------------------------------------------------------
 # Website count
@@ -188,7 +189,7 @@ website_count:
 # See: https://github.com/theme-next/hexo-generator-searchdb
 # ---------------------------------------------------------------------------------------
 local_search:
-  enable: false
+  enable: true
   preload: true # Preload the search data when the page loads
 
 # ---------------------------------------------------------------------------------------
@@ -231,7 +232,7 @@ friend_links:
 # See: https://github.com/hexojs/hexo-generator-feed
 # ---------------------------------------------------------------------------------------
 rss:
-  enable: false
+  enable: true
 
 # ---------------------------------------------------------------------------------------
 # Lazyload image
@@ -243,7 +244,7 @@ lazyload:
 # CDN
 # ---------------------------------------------------------------------------------------
 cdn:
-  enable: false
+  enable: true
 
 # ---------------------------------------------------------------------------------------
 # PJAX
@@ -279,7 +280,7 @@ fontawesome: # select fontawesome versions you want to use, in order to reduce t
 # ---------------------------------------------------------------------------------------
 footer:
   runtime: true # show website running time or not
-  start_time: 2022/8/17 11:45:14 # the starting time of your website, format: yyyy/mm/dd hh:mm:ss
+  start_time: 2023/2/15 11:45:14 # the starting time of your website, format: yyyy/mm/dd hh:mm:ss
   customize:  # customize footer message, can be html code
   icp: # ICP record number of your website, Can be null
 
@@ -301,3 +302,18 @@ inject:
 # Github: https://github.com/EvanNotFound/hexo-theme-redefine
 # ---------------------------------------------------------------------------------------
 version: 1.1.2
+
+# Search
+## See: https://github.com/theme-next/hexo-generator-searchdb
+search:
+  path: search.json
+  field: post
+  content: true
+  format: striptags
+
+# Feed Atom
+# npm install hexo-generator-feed
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
