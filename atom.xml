@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2023-02-18T15:38:19.423Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://example.com/2023/02/18/hello-world/"/>
+    <id>http://example.com/2023/02/18/hello-world/</id>
+    <published>2023-02-18T15:38:19.423Z</published>
+    <updated>2023-02-18T15:38:19.423Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div><p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div><p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div><p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></div><p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a class=&quot;link&quot;   href=&quot;https://hexo.io/&quot; &gt;Hexo &lt;i class=&quot;fa-regular fa-arrow-up-right-from-square fa-sm&quot;&gt;&lt;/i&gt;&lt;/a&gt;! This is yo</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu搭建STM32开发环境</title>
+    <link href="http://example.com/2023/02/16/Ubuntu%E6%90%AD%E5%BB%BASTM32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
+    <id>http://example.com/2023/02/16/Ubuntu%E6%90%AD%E5%BB%BASTM32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</id>
+    <published>2023-02-16T22:23:19.000Z</published>
+    <updated>2023-02-18T15:38:19.423Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="使用软件"><a href="#使用软件" class="headerlink" title="使用软件"></a>使用软件</h2><ul><li>代码生成：STM32CubeMX</li><li>编译代码：arm-none-eabi toolchain 和 make</li><li>调试下载：openocd（兼容多种调试器）</li><li>编辑代码：vscode（stm32-for-vsocde插件）</li></ul><h2 id="Stm32CubeMX"><a href="#Stm32CubeMX" class="headerlink" title="Stm32CubeMX"></a>Stm32CubeMX</h2><p><a class="link"   href="https://www.st.com/en/development-tools/stm32cubemx.html" >官网下载地址 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>点击下载，输入姓名邮箱后，下载链接会发到你的邮箱里面。</p><p>下载完成后，打开文件夹直接运行（有很多之前的教程说要下载jdk啥的，现在cubemx文件夹自带有jre无需自行下载安装）</p><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./SetupSTM32CubeMX-xx</span><br></pre></td></tr></table></figure></div><h2 id="arm-none-eabi-toolchain"><a href="#arm-none-eabi-toolchain" class="headerlink" title="arm-none-eabi toolchain"></a>arm-none-eabi toolchain</h2><p>apt直接安装方式只会安装gcc，而没有gdb。无法进行调试，而且版本很低。</p><p>从<a class="link"   href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads" >ARM官方下载链接 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>下载安装包（x86_64 Linux hosted cross toolchains 下面的 AArch32 bare-metal target)。最好不要下最新版本，可能会有bug。</p><p>解压后，将解压后文件夹的bin目录放入环境变量中</p><h2 id="make"><a href="#make" class="headerlink" title="make"></a>make</h2><p>绝大多数linux系统自带。如若没有，按照如下方式安装</p><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./SetupSTM32CubeMX-xx</span><br></pre></td></tr></table></figure></div><h2 id="openocd"><a href="#openocd" class="headerlink" title="openocd"></a>openocd</h2><p>apt直接安装的版本太老，使用cortex-debug调试时可能会有bug。</p><p>从<a class="link"   href="https://github.com/xpack-dev-tools/openocd-xpack/releases" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>下载linux-x64版本（例如：xpack-openocd-0.12.0-1-linux-x64.tar.gz ）<br>解压后，将解压后文件夹的bin目录放入环境变量中</p><h2 id="vscode"><a href="#vscode" class="headerlink" title="vscode"></a>vscode</h2><p>如若没有vscode，请参照<a class="link"   href="https://code.visualstudio.com/docs/setup/linux" >微软官方教程 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>安装</p><p>下载C&#x2F;c++插件和stm32-for-vscode插件<br>打开stm32-for-vscode插件，配置相应的路径（如果加入了环境变量，应该会自动配置）<br><img                       lazyload                     src="/images/loading.svg"                     data-src="https://image-1305582579.cos.ap-chengdu.myqcloud.com/screenshot.png"                                     ><br>接上自己的调试器后，在stm32-for-vscode插件中测试编译、调试功能是否正常（点击调试按钮后，插件就会自动生成c_cpp_properties.json，vscode就不会代码报错了）<br><img                       lazyload                     src="/images/loading.svg"                     data-src="https://image-1305582579.cos.ap-chengdu.myqcloud.com/screenshot_1.png"                                     ></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;使用软件&quot;&gt;&lt;a href=&quot;#使用软件&quot; class=&quot;headerlink&quot; title=&quot;使用软件&quot;&gt;&lt;/a&gt;使用软件&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;代码生成：STM32CubeMX&lt;/li&gt;
+&lt;li&gt;编译代码：arm-none-eabi toolchain 和</summary>
+      
+    
+    
+    
+    
+    <category term="STM32" scheme="http://example.com/tags/STM32/"/>
+    
+  </entry>
+  
+</feed>
