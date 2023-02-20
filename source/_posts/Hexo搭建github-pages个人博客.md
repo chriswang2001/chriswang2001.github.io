@@ -1,7 +1,7 @@
 ---
 title: Hexo搭建github_pages个人博客
 date: 2023-02-19 23:16:12
-tags:
+tags: Hexo
 ---
 
 ## 安装前提
