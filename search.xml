@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Ubuntu搭建STM32开发环境</title>
+    <url>/2023/02/16/Ubuntu%E6%90%AD%E5%BB%BASTM32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</url>
+    <content><![CDATA[<h2 id="使用软件"><a href="#使用软件" class="headerlink" title="使用软件"></a>使用软件</h2><ul>
+<li>代码生成：STM32CubeMX</li>
+<li>编译代码：arm-none-eabi toolchain 和 make</li>
+<li>调试下载：openocd（兼容多种调试器）</li>
+<li>编辑代码：vscode（stm32-for-vsocde插件）</li>
+</ul>
+<h2 id="Stm32CubeMX"><a href="#Stm32CubeMX" class="headerlink" title="Stm32CubeMX"></a>Stm32CubeMX</h2><p><a class="link"   href="https://www.st.com/en/development-tools/stm32cubemx.html" >官网下载地址 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>点击下载，输入姓名邮箱后，下载链接会发到你的邮箱里面。</p>
+<p>下载完成后，打开文件夹直接运行（有很多之前的教程说要下载jdk啥的，现在cubemx文件夹自带有jre无需自行下载安装）</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ./SetupSTM32CubeMX-xx</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="arm-none-eabi-toolchain"><a href="#arm-none-eabi-toolchain" class="headerlink" title="arm-none-eabi toolchain"></a>arm-none-eabi toolchain</h2><p>apt直接安装方式只会安装gcc，而没有gdb。无法进行调试，而且版本很低。</p>
+<p>从<a class="link"   href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads" >ARM官方下载链接 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>下载安装包（x86_64 Linux hosted cross toolchains 下面的 AArch32 bare-metal target)。最好不要下最新版本，可能会有bug。</p>
+<p>解压后，将解压后文件夹的bin目录放入环境变量中</p>
+<h2 id="make"><a href="#make" class="headerlink" title="make"></a>make</h2><p>绝大多数linux系统自带。如若没有，按照如下方式安装</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ./SetupSTM32CubeMX-xx</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="openocd"><a href="#openocd" class="headerlink" title="openocd"></a>openocd</h2><p>apt直接安装的版本太老，使用cortex-debug调试时可能会有bug。</p>
+<p>从<a class="link"   href="https://github.com/xpack-dev-tools/openocd-xpack/releases" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>下载linux-x64版本（例如：xpack-openocd-0.12.0-1-linux-x64.tar.gz ）<br>解压后，将解压后文件夹的bin目录放入环境变量中</p>
+<h2 id="vscode"><a href="#vscode" class="headerlink" title="vscode"></a>vscode</h2><p>如若没有vscode，请参照<a class="link"   href="https://code.visualstudio.com/docs/setup/linux" >微软官方教程 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>安装</p>
+<p>下载C&#x2F;c++插件和stm32-for-vscode插件<br>打开stm32-for-vscode插件，配置相应的路径（如果加入了环境变量，应该会自动配置）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://image-1305582579.cos.ap-chengdu.myqcloud.com/screenshot.png"
+                     
+                ><br>接上自己的调试器后，在stm32-for-vscode插件中测试编译、调试功能是否正常（点击调试按钮后，插件就会自动生成c_cpp_properties.json，vscode就不会代码报错了）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://image-1305582579.cos.ap-chengdu.myqcloud.com/screenshot_1.png"
+                     
+                ></p>
+]]></content>
+      <tags>
+        <tag>STM32</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo搭建github_pages个人博客</title>
     <url>/2023/02/19/Hexo%E6%90%AD%E5%BB%BAgithub-pages%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<h2 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a>安装前提</h2><ul>
@@ -121,43 +159,8 @@
 </li>
 </ol>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Ubuntu搭建STM32开发环境</title>
-    <url>/2023/02/16/Ubuntu%E6%90%AD%E5%BB%BASTM32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</url>
-    <content><![CDATA[<h2 id="使用软件"><a href="#使用软件" class="headerlink" title="使用软件"></a>使用软件</h2><ul>
-<li>代码生成：STM32CubeMX</li>
-<li>编译代码：arm-none-eabi toolchain 和 make</li>
-<li>调试下载：openocd（兼容多种调试器）</li>
-<li>编辑代码：vscode（stm32-for-vsocde插件）</li>
-</ul>
-<h2 id="Stm32CubeMX"><a href="#Stm32CubeMX" class="headerlink" title="Stm32CubeMX"></a>Stm32CubeMX</h2><p><a class="link"   href="https://www.st.com/en/development-tools/stm32cubemx.html" >官网下载地址 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>点击下载，输入姓名邮箱后，下载链接会发到你的邮箱里面。</p>
-<p>下载完成后，打开文件夹直接运行（有很多之前的教程说要下载jdk啥的，现在cubemx文件夹自带有jre无需自行下载安装）</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ./SetupSTM32CubeMX-xx</span><br></pre></td></tr></table></figure></div>
-
-<h2 id="arm-none-eabi-toolchain"><a href="#arm-none-eabi-toolchain" class="headerlink" title="arm-none-eabi toolchain"></a>arm-none-eabi toolchain</h2><p>apt直接安装方式只会安装gcc，而没有gdb。无法进行调试，而且版本很低。</p>
-<p>从<a class="link"   href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads" >ARM官方下载链接 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>下载安装包（x86_64 Linux hosted cross toolchains 下面的 AArch32 bare-metal target)。最好不要下最新版本，可能会有bug。</p>
-<p>解压后，将解压后文件夹的bin目录放入环境变量中</p>
-<h2 id="make"><a href="#make" class="headerlink" title="make"></a>make</h2><p>绝大多数linux系统自带。如若没有，按照如下方式安装</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ./SetupSTM32CubeMX-xx</span><br></pre></td></tr></table></figure></div>
-
-<h2 id="openocd"><a href="#openocd" class="headerlink" title="openocd"></a>openocd</h2><p>apt直接安装的版本太老，使用cortex-debug调试时可能会有bug。</p>
-<p>从<a class="link"   href="https://github.com/xpack-dev-tools/openocd-xpack/releases" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>下载linux-x64版本（例如：xpack-openocd-0.12.0-1-linux-x64.tar.gz ）<br>解压后，将解压后文件夹的bin目录放入环境变量中</p>
-<h2 id="vscode"><a href="#vscode" class="headerlink" title="vscode"></a>vscode</h2><p>如若没有vscode，请参照<a class="link"   href="https://code.visualstudio.com/docs/setup/linux" >微软官方教程 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>安装</p>
-<p>下载C&#x2F;c++插件和stm32-for-vscode插件<br>打开stm32-for-vscode插件，配置相应的路径（如果加入了环境变量，应该会自动配置）<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://image-1305582579.cos.ap-chengdu.myqcloud.com/screenshot.png"
-                     
-                ><br>接上自己的调试器后，在stm32-for-vscode插件中测试编译、调试功能是否正常（点击调试按钮后，插件就会自动生成c_cpp_properties.json，vscode就不会代码报错了）<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://image-1305582579.cos.ap-chengdu.myqcloud.com/screenshot_1.png"
-                     
-                ></p>
-]]></content>
       <tags>
-        <tag>STM32</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
