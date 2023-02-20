@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://haozhou-wong.cn/2023/02/16/Ubuntu%E6%90%AD%E5%BB%BASTM32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</loc>
-    
-    <lastmod>2023-02-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://haozhou-wong.cn/2023/02/19/Hexo%E6%90%AD%E5%BB%BAgithub-pages%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
     
     <lastmod>2023-02-20</lastmod>
@@ -20,7 +11,25 @@
   </url>
   
   <url>
+    <loc>https://haozhou-wong.cn/2023/02/16/Ubuntu%E6%90%AD%E5%BB%BASTM32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</loc>
+    
+    <lastmod>2023-02-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://haozhou-wong.cn/about/index.html</loc>
+    
+    <lastmod>2023-02-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://haozhou-wong.cn/tags/index.html</loc>
     
     <lastmod>2023-02-20</lastmod>
     
@@ -38,14 +47,14 @@
 
   
   <url>
-    <loc>https://haozhou-wong.cn/tags/STM32/</loc>
+    <loc>https://haozhou-wong.cn/tags/Hexo/</loc>
     <lastmod>2023-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://haozhou-wong.cn/tags/Hexo/</loc>
+    <loc>https://haozhou-wong.cn/tags/STM32/</loc>
     <lastmod>2023-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
