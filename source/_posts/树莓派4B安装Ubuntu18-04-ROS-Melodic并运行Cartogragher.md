@@ -146,6 +146,12 @@ tags: SLAM
 1. 打开ubuntu自带的远程桌面
     ![20230224222809](https://image-1305582579.cos.ap-chengdu.myqcloud.com/20230224222809.png)
 
+    或者使用命令行
+
+    ```bash
+    /usr/lib/vino/vino-server --display=:0
+    ```
+
 1. 在本地电脑上启动 Vnc Client，输入IP地址连接
 
 1. 为了后面能够无需显示器，开机后就可以连接远程桌面。还需要设置[自动登录](https://blog.csdn.net/mbdong/article/details/114069882)和[虚拟显示器](https://askubuntu.com/questions/1033436/how-to-use-ubuntu-18-04-on-vnc-without-display-attached)
