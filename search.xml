@@ -254,6 +254,8 @@
                      data-src="https://image-1305582579.cos.ap-chengdu.myqcloud.com/20230224222809.png"
                       alt="20230224222809"
                 ></p>
+<p> 或者使用命令行</p>
+ <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/lib/vino/vino-server --display=:0</span><br></pre></td></tr></table></figure></div>
 </li>
 <li><p>在本地电脑上启动 Vnc Client，输入IP地址连接</p>
 </li>
