@@ -130,6 +130,17 @@ tags: SLAM
 
     执行到中间会卡死。原因是没有设置swap分区，导致内存不足。根据[修改树莓派交换分区 SWAP 的正确姿势](https://shumeipai.nxez.com/2017/12/18/how-to-modify-raspberry-pi-swap-partition.html)这篇博客设置即可
 
+1. 运行cartograher示例
+
+    Download and launch the 2D backpack demo（执行前需要source devel_isolated目录下的setup.bash）
+
+    ```bash
+    wget -P ~/Downloads https://storage.googleapis.com/cartographer-public-data/bags/backpack_2d/cartographer_paper_deutsches_museum.bag
+    roslaunch cartographer_ros demo_backpack_2d.launch bag_filename:=${HOME}/Downloads/cartographer_paper_deutsches_museum.bag
+    ```
+
+    ![20230224224554](https://image-1305582579.cos.ap-chengdu.myqcloud.com/20230224224554.png)
+
 ## 远程桌面
 
 1. 打开ubuntu自带的远程桌面
