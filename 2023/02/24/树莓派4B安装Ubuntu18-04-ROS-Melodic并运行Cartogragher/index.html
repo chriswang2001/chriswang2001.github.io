@@ -303,8 +303,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="pc">2023-02-24 14:37:45</span>
-            <span class="mobile">2023-02-24 14:37</span>
+            <span class="pc">2023-02-24 14:50:10</span>
+            <span class="mobile">2023-02-24 14:50</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -326,12 +326,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-file-word"></i>&nbsp;<span>890 Words</span>
+            <i class="fa-regular fa-file-word"></i>&nbsp;<span>938 Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>3 Mins</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>4 Mins</span>
         </span>
     
     
@@ -415,6 +415,17 @@
  <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">catkin_make_isolated --install --use-ninja</span><br></pre></td></tr></table></figure></div>
 
 <p> 执行到中间会卡死。原因是没有设置swap分区，导致内存不足。根据<a class="link"   target="_blank" rel="noopener" href="https://shumeipai.nxez.com/2017/12/18/how-to-modify-raspberry-pi-swap-partition.html" >修改树莓派交换分区 SWAP 的正确姿势 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>这篇博客设置即可</p>
+</li>
+<li><p>运行cartograher示例</p>
+<p> Download and launch the 2D backpack demo（执行前需要source devel_isolated目录下的setup.bash）</p>
+ <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -P ~/Downloads https://storage.googleapis.com/cartographer-public-data/bags/backpack_2d/cartographer_paper_deutsches_museum.bag</span><br><span class="line">roslaunch cartographer_ros demo_backpack_2d.launch bag_filename:=<span class="variable">$&#123;HOME&#125;</span>/Downloads/cartographer_paper_deutsches_museum.bag</span><br></pre></td></tr></table></figure></div>
+
+<p> <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://image-1305582579.cos.ap-chengdu.myqcloud.com/20230224224554.png"
+                      alt="20230224224554"
+                ></p>
 </li>
 </ol>
 <h2 id="远程桌面"><a href="#远程桌面" class="headerlink" title="远程桌面"></a>远程桌面</h2><ol>
