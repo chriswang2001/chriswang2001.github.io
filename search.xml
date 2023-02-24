@@ -163,4 +163,95 @@
         <tag>STM32</tag>
       </tags>
   </entry>
+  <entry>
+    <title>树莓派4B安装Ubuntu18.04+ROS_Melodic并运行Cartogragher</title>
+    <url>/2023/02/24/%E6%A0%91%E8%8E%93%E6%B4%BE4B%E5%AE%89%E8%A3%85Ubuntu18-04-ROS-Melodic%E5%B9%B6%E8%BF%90%E8%A1%8CCartogragher/</url>
+    <content><![CDATA[<h2 id="安装Ubuntu18-04"><a href="#安装Ubuntu18-04" class="headerlink" title="安装Ubuntu18.04"></a>安装Ubuntu18.04</h2><ol>
+<li><p>下载ubuntu18.04镜像</p>
+<p> 目前官方系统已经升级到ubuntu22.04LTS，官网页面没有提供历史版本的下载。所以本文从清华的开源镜像网站下载<a class="link"   href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/bionic/release/" >ubuntu18.04镜像 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>。目前只有server版，需要后面手动安装桌面。树莓派4B选择arm64+raspi4。<br> <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://image-1305582579.cos.ap-chengdu.myqcloud.com/20230224213943.png"
+                      alt="20230224213943"
+                ></p>
+</li>
+<li><p>烧录镜像</p>
+<p> 使用树莓派官方工具Raspberry Pi Imager烧录镜像。<a class="link"   href="https://www.raspberrypi.com/software/" >官网下载地址 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br> <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://image-1305582579.cos.ap-chengdu.myqcloud.com/20230224214326.png"
+                      alt="20230224214326"
+                ></p>
+<p> 选择自定义镜像<br> <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://image-1305582579.cos.ap-chengdu.myqcloud.com/20230224214509.png"
+                      alt="20230224214509"
+                ></p>
+<p> 高级设置里面配置用户名、网络等信息<br> <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://image-1305582579.cos.ap-chengdu.myqcloud.com/20230224214648.png"
+                      alt="20230224214648"
+                ><br> 点击烧录后等待烧录完成</p>
+</li>
+<li><p>将SD卡插入树莓派，连接HDMI显示器，启动树莓派。</p>
+<p> 如果显示屏无信号，修改SD卡下的config.txt文件, 增加如下语句：</p>
+ <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">hdmi_force_hotplug=1 <span class="comment">#强制使用HDMI输出（强行认为HDMI口已经插入了设备）</span></span><br><span class="line">config_hdmi_boost=4 <span class="comment">#HDMI信号增强。（1~9）</span></span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>连接网络<br> 如果在烧录前正确配置了网路信息，此时应该可以成功连接网络。<br> 没有的话，可修改SD卡目录下的network-config文件。（注意：务必使用空格缩进）</p>
+ <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">wifis:</span><br><span class="line">    wlan0:</span><br><span class="line">        access-points:</span><br><span class="line">        <span class="string">&quot;SSID&quot;</span>:</span><br><span class="line">            password: <span class="string">&quot;Password&quot;</span></span><br><span class="line">        dhcp4: <span class="literal">true</span></span><br><span class="line">        optional: <span class="literal">true</span></span><br></pre></td></tr></table></figure></div>
+
+<p> 如果上述操作仍无法连接网络，可开机后修改&#x2F;etc&#x2F;netplan&#x2F;50-cloud-init.yaml文件。</p>
+ <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">network:</span><br><span class="line">    version: 2</span><br><span class="line">    renderer: networkd</span><br><span class="line">    ethernets:</span><br><span class="line">        eth0:</span><br><span class="line">            dhcp4: <span class="literal">false</span></span><br><span class="line">            optional: <span class="literal">true</span></span><br><span class="line">    wifis:</span><br><span class="line">        wlan0:</span><br><span class="line">        access-points:</span><br><span class="line">            SSID:</span><br><span class="line">            password: Password</span><br><span class="line">        dhcp4: <span class="literal">false</span></span><br><span class="line">        optional: <span class="literal">true</span></span><br></pre></td></tr></table></figure></div>
+
+<p> 修改完成后执行下述命令</p>
+ <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">sudo netplan generate</span><br><span class="line">sudo netplan apply</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>修改软件源</p>
+<p> 修改&#x2F;etc&#x2F;apt&#x2F;sources.list，为如下内容（清华源，arm架构使用ubuntu-ports)</p>
+ <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-updates main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-updates main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-backports main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-backports main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-security main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-security main restricted universe multiverse</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 预发布软件源，不建议启用</span></span><br><span class="line"><span class="comment"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-proposed main restricted universe multiverse</span></span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-proposed main restricted universe multiverse</span></span><br></pre></td></tr></table></figure></div>
+
+<p> 刷新软件源</p>
+ <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>安装桌面</p>
+<p> 后期使用ROS的rviz, gazebo等仿真工具，需要桌面图形环境。本文选择ubuntu系统默认的desktop。</p>
+ <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install ubuntu-desktop</span><br></pre></td></tr></table></figure></div>
+
+<p> 安装完成后重启，就能看见图形界面了</p>
+<p> 需要注意ubuntu图形界面采用NetworkManager进行网络管理，所以如需使用图形界面连接网络，需要将&#x2F;etc&#x2F;netplan&#x2F;50-cloud-init.yaml中的 renderer: networkd 改为 renderer: NetworkManager</p>
+</li>
+</ol>
+<h2 id="安装ROS-Melodic-和-Cartograher"><a href="#安装ROS-Melodic-和-Cartograher" class="headerlink" title="安装ROS_Melodic 和 Cartograher"></a>安装ROS_Melodic 和 Cartograher</h2><ol>
+<li><p>参照<a class="link"   href="http://wiki.ros.org/melodic/Installation/Ubuntu" >ROS官网教程 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 安装</p>
+<p> 其中sudo rosdep init 需要科学上网，并更改dns（或修改hosts）</p>
+</li>
+<li><p>参照<a class="link"   href="https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html" >Cartograher官网教程 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 安装</p>
+ <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">rosdep install --from-paths src --ignore-src --rosdistro=<span class="variable">$&#123;ROS_DISTRO&#125;</span> -y</span><br></pre></td></tr></table></figure></div>
+
+<p> 执行会出错。你需要删除或者注释在cartographer包下(不是cartographer_ros) package.xml文件里的(<depend>libabsl-dev</depend>)。</p>
+ <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">catkin_make_isolated --install --use-ninja</span><br></pre></td></tr></table></figure></div>
+
+<p> 执行到中间会卡死。原因是没有设置swap分区，导致内存不足。根据<a class="link"   href="https://shumeipai.nxez.com/2017/12/18/how-to-modify-raspberry-pi-swap-partition.html" >修改树莓派交换分区 SWAP 的正确姿势 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>这篇博客设置即可</p>
+</li>
+</ol>
+<h2 id="远程桌面"><a href="#远程桌面" class="headerlink" title="远程桌面"></a>远程桌面</h2><ol>
+<li><p>打开ubuntu自带的远程桌面<br> <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://image-1305582579.cos.ap-chengdu.myqcloud.com/20230224222809.png"
+                      alt="20230224222809"
+                ></p>
+</li>
+<li><p>在本地电脑上启动 Vnc Client，输入IP地址连接</p>
+</li>
+<li><p>为了后面能够无需显示器，开机后就可以连接远程桌面。还需要设置<a class="link"   href="https://blog.csdn.net/mbdong/article/details/114069882" >自动登录 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>和<a class="link"   href="https://askubuntu.com/questions/1033436/how-to-use-ubuntu-18-04-on-vnc-without-display-attached" >虚拟显示器 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>SLAM</tag>
+      </tags>
+  </entry>
 </search>
